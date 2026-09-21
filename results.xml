@@ -1,0 +1,58 @@
+<testsuites id="" name="" tests="18" failures="0" skipped="0" errors="0" time="50.573757">
+<testsuite name=".features-gen/features/cart.feature.spec.js" timestamp="2026-09-21T15:23:55.553Z" hostname="bdd-chromium" tests="6" failures="0" skipped="0" time="64.635" errors="0">
+<testcase name="Cart and Checkout › Cart displays the correct product after adding one item" classname=".features-gen/features/cart.feature.spec.js" time="7.652">
+</testcase>
+<testcase name="Cart and Checkout › Cart calculates the correct total price for an item" classname=".features-gen/features/cart.feature.spec.js" time="6.819">
+</testcase>
+<testcase name="Cart and Checkout › Removing an item empties the cart" classname=".features-gen/features/cart.feature.spec.js" time="7.753">
+</testcase>
+<testcase name="Cart and Checkout › Proceeding to checkout without logging in prompts registration" classname=".features-gen/features/cart.feature.spec.js" time="12.005">
+</testcase>
+<testcase name="Cart and Checkout › A logged-in user can proceed to checkout and see the order review" classname=".features-gen/features/cart.feature.spec.js" time="13.954">
+</testcase>
+<testcase name="Cart and Checkout › Completing payment shows the order confirmation" classname=".features-gen/features/cart.feature.spec.js" time="16.452">
+</testcase>
+</testsuite>
+<testsuite name=".features-gen/features/login.feature.spec.js" timestamp="2026-09-21T15:23:55.553Z" hostname="bdd-chromium" tests="6" failures="0" skipped="0" time="70.98" errors="0">
+<testcase name="Login and Signup › A new user can sign up with a unique email and the account is created" classname=".features-gen/features/login.feature.spec.js" time="15.806">
+</testcase>
+<testcase name="Login and Signup › Signing up twice with the same email is rejected" classname=".features-gen/features/login.feature.spec.js" time="13.577">
+</testcase>
+<testcase name="Login and Signup › A registered user can log in successfully" classname=".features-gen/features/login.feature.spec.js" time="6.793">
+</testcase>
+<testcase name="Login and Signup › Login fails with an incorrect password for a registered account" classname=".features-gen/features/login.feature.spec.js" time="7.49">
+</testcase>
+<testcase name="Login and Signup › Login fails with a non-existent email" classname=".features-gen/features/login.feature.spec.js" time="3.772">
+</testcase>
+<testcase name="Login and Signup › A logged-in user can log out" classname=".features-gen/features/login.feature.spec.js" time="23.542">
+</testcase>
+</testsuite>
+<testsuite name=".features-gen/features/products.feature.spec.js" timestamp="2026-09-21T15:23:55.553Z" hostname="bdd-chromium" tests="6" failures="0" skipped="0" time="38.361" errors="0">
+<testcase name="Products › All products are listed on the Products page" classname=".features-gen/features/products.feature.spec.js" time="3.648">
+</testcase>
+<testcase name="Products › Searching for a product displays search results" classname=".features-gen/features/products.feature.spec.js" time="4.405">
+</testcase>
+<testcase name="Products › Viewing a category subcategory filters the product list" classname=".features-gen/features/products.feature.spec.js" time="17.085">
+</testcase>
+<testcase name="Products › Adding a product to the cart from the listing shows a confirmation" classname=".features-gen/features/products.feature.spec.js" time="4.442">
+</testcase>
+<testcase name="Products › Opening a product&apos;s detail page shows the correct name" classname=".features-gen/features/products.feature.spec.js" time="3.941">
+<system-out>
+<![CDATA[BEFORE CLICK: https://automationexercise.com/products
+HREF: /product_details/1
+AFTER CLICK: https://automationexercise.com/product_details/1
+TITLE: Automation Exercise - Product Details
+]]>
+</system-out>
+</testcase>
+<testcase name="Products › Adding a product to cart from its detail page with a specific quantity" classname=".features-gen/features/products.feature.spec.js" time="4.84">
+<system-out>
+<![CDATA[BEFORE CLICK: https://automationexercise.com/products
+HREF: /product_details/1
+AFTER CLICK: https://automationexercise.com/product_details/1
+TITLE: Automation Exercise - Product Details
+]]>
+</system-out>
+</testcase>
+</testsuite>
+</testsuites>
