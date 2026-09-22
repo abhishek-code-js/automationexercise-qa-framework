@@ -6,6 +6,7 @@
   "scripts": {
     "test:bdd": "bddgen && playwright test --project=bdd-chromium",
     "test:api": "playwright test tests/api",
+    "test:ui": "playwright test tests/ui --project=ui-chromium",
     "test:db": "playwright test tests/db",
     "test:all": "npm run test:bdd && npm run test:api && npm run test:db",
     "report": "playwright show-report",
