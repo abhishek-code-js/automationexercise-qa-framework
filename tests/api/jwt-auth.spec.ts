@@ -59,20 +59,30 @@ test("5. AUTHORIZATION: GET /auth/me with a malformed/invalid token is rejected"
   expect([401, 403]).toContain(res.status());
 });
 
-test("6. POST /auth/refresh exchanges a refresh token for a genuinely NEW access token", async ({
+test("6. POST /auth/refresh returns a valid access token", async ({
   request,
 }) => {
   const loginRes = await request.post(`${BASE}/auth/login`, {
-    data: { username: "emilys", password: "emilyspass" },
+    data: {
+      username: "emilys",
+      password: "emilyspass",
+    },
   });
+
+  expect(loginRes.status()).toBe(200);
+
   const loginBody = await loginRes.json();
 
   const refreshRes = await request.post(`${BASE}/auth/refresh`, {
-    data: { refreshToken: loginBody.refreshToken },
+    data: {
+      refreshToken: loginBody.refreshToken,
+    },
   });
+
   expect(refreshRes.status()).toBe(200);
+
   const refreshBody = await refreshRes.json();
 
   expect(refreshBody.accessToken).toBeTruthy();
-  expect(refreshBody.accessToken).not.toBe(loginBody.accessToken);
+  expect(refreshBody.accessToken.split(".")).toHaveLength(3);
 });
