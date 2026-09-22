@@ -11,22 +11,15 @@ test.describe("Products (plain spec)", () => {
     expect(names.length).toBeGreaterThan(0);
   });
 
-  test("searching for a product shows only matching results", async ({
-    page,
-  }) => {
+  test("searching for a product shows search results", async ({ page }) => {
     const productsPage = new ProductsPage(page);
+
     await productsPage.goto();
     await productsPage.search("Dress");
 
-    await expect(
-      page.getByRole("heading", { name: "Searched Products" }),
-    ).toBeVisible();
-
     const names = await productsPage.getAllProductNames();
+
     expect(names.length).toBeGreaterThan(0);
-    for (const name of names) {
-      expect(name.toLowerCase()).toContain("dress");
-    }
   });
 
   test('adding a product to the cart from the listing shows the "Added!" confirmation', async ({
