@@ -1,43 +1,61 @@
-# Starter pipeline
-# Start with a minimal pipeline that you can customize to build and deploy your code.
-# Add steps that build, run tests, deploy, and more:
-# https://aka.ms/yaml
-
 trigger:
   branches:
-    include: [main]
+    include:
+      - main
 
 pool:
   vmImage: 'ubuntu-latest'
 
 variables:
   CI_PLATFORM: 'Azure Pipelines'
+  NODE_VERSION: '24.x'
 
 steps:
-  - task: NodeTool@0
+
+  # ----------------------------------------
+  # Node.js
+  # ----------------------------------------
+  - task: UseNode@1
     inputs:
-      versionSpec: '20.x'
+      version: '$(NODE_VERSION)'
     displayName: 'Install Node.js'
 
+  # ----------------------------------------
+  # Dependencies
+  # ----------------------------------------
   - script: npm ci
     displayName: 'Install dependencies'
 
+  # ----------------------------------------
+  # Playwright browsers
+  # ----------------------------------------
   - script: npx playwright install --with-deps
     displayName: 'Install Playwright browsers'
 
+  # ----------------------------------------
+  # BDD tests
+  # ----------------------------------------
   - script: npm run test:bdd
     displayName: 'Run BDD suite'
     continueOnError: true
 
+  # ----------------------------------------
+  # UI tests
+  # ----------------------------------------
   - script: npm run test:ui
     displayName: 'Run UI suite'
     continueOnError: true
 
+  # ----------------------------------------
+  # API tests
+  # ----------------------------------------
   - script: npm run test:api
     displayName: 'Run API suite'
     continueOnError: true
 
-
+  # ----------------------------------------
+  # Playwright HTML report
+  # ----------------------------------------
   - task: PublishPipelineArtifact@1
     condition: always()
     inputs:
@@ -45,6 +63,9 @@ steps:
       artifact: 'playwright-report'
     displayName: 'Publish Playwright HTML report'
 
+  # ----------------------------------------
+  # Excel QA report
+  # ----------------------------------------
   - task: PublishPipelineArtifact@1
     condition: always()
     inputs:
