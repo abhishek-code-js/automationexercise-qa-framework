@@ -20,7 +20,9 @@ export class CartPage {
   }
 
   async goto() {
-    await this.page.goto("/view_cart");
+    await this.page.goto("/view_cart", {
+      waitUntil: "domcontentloaded",
+    });
   }
 
   rowByProductName(name: string): Locator {

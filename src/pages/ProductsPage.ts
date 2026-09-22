@@ -102,15 +102,8 @@ export class ProductsPage {
 
     await expect(viewProductLink).toBeVisible();
 
-    console.log("BEFORE CLICK:", await this.page.url());
-    console.log("HREF:", await viewProductLink.getAttribute("href"));
-
     await viewProductLink.click();
-
     await this.page.waitForLoadState("domcontentloaded");
-
-    console.log("AFTER CLICK:", await this.page.url());
-    console.log("TITLE:", await this.page.title());
   }
 
   // ==================================================
